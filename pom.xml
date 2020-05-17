@@ -81,6 +81,8 @@
                     <effort>Max</effort>
                     <threshold>High</threshold>
                     <xmlOutput>true</xmlOutput>
+                    <spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs-reports</spotbugsXmlOutputDirectory>
+                    <xmlOutputDirectory>${project.build.directory}/spotbugs-reports</xmlOutputDirectory>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -91,6 +93,11 @@
                 </dependencies>
                 <executions>
                     <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                    </execution>
+                    <execution>
+                        <id>check</id>
                         <goals>
                             <goal>check</goal>
                         </goals>
